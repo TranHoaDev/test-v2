@@ -30,7 +30,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         String email = (String) oAuth2User.getAttributes().get("email");
         String token = jwtProvider.createToken(email, "USER");
 //        String uri = UriComponentsBuilder.fromUriString("http://" + hostname + "/oauth2/redirect")
-        String uri = UriComponentsBuilder.fromUriString(hostname + "/oauth2/redirect")
+        String uri = UriComponentsBuilder.fromUriString(hostname + "/swagger-ui.html")
                 .queryParam("token", token)
                 .build().toUriString();
         getRedirectStrategy().sendRedirect(request, response, uri);
